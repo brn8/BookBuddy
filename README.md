@@ -1,4 +1,4 @@
-# [Book Buddy](https://stately-choux-30c197.netlify.app/)
+# [Book Buddy](https://sunny-meerkat-2f27df.netlify.app/)
 
 ## Introduction
 
