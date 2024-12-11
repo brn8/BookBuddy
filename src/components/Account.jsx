@@ -31,25 +31,29 @@ const Account = ({ token, checkout }) => {
   return (
     <>
       <h2>Account Detail</h2>
-      <p>
-        <strong>
-          {userDetail.firstname} {userDetail.lastname}
-        </strong>
+      <p style={{ fontSize: "20px" }}>
+        <strong>Full Name: </strong>
+        {userDetail.firstname} {userDetail.lastname}
       </p>
-      <p>
+      <p style={{ fontSize: "20px" }}>
         <strong>Email: </strong>
         {userDetail.email}
       </p>
+      {reservedBook != undefined && (
+        <h1 style={{ textAlign: "center" }}>Checked Out Books</h1>
+      )}
+      <br />
       <div className="card-account">
         {reservedBook != undefined &&
           reservedBook.map((book) => {
             return (
               <>
-                <div className="book">
+                <div className="bookaccount">
+                  <h3>{book.title}</h3>
                   <img
                     src={book.coverimage}
                     alt="book image"
-                    style={{ width: "350px", height: "400px" }}
+                    style={{ width: "250px", height: "350px" }}
                   />
                   <button onClick={() => returnHandler(book.id)}>Return</button>
                 </div>

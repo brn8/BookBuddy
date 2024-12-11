@@ -18,27 +18,32 @@ const Login = ({ setToken }) => {
     setPassword("");
   };
   return (
-    <>
-      <h1>Login</h1>
+    <div className="loginForm">
+      {/* <h1>Login</h1> */}
       <p style={{ color: "red" }}>{message.message}</p>
       <form onSubmit={handlerSubmit}>
-        <label>Username: </label>
+        <label class="form-label">Username: </label>
+        <br />
         <input
           type="email"
+          class="form-control"
           onChange={(e) => setEmail(e.target.value)}
           value={email}
         />
-        <label>Password: </label>
+        <br />
+        <label class="form-label">Password: </label>
         <input
           type="password"
+          class="form-control"
           onChange={(e) => setPassword(e.target.value)}
           value={password}
           minLength={7}
           required
         />
-        <button>Submit</button>
+        <br />
+        <button class="btn btn-primary">Submit</button>
       </form>
-    </>
+    </div>
   );
 };
 

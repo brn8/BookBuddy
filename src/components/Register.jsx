@@ -27,48 +27,52 @@ const Register = () => {
     setPassword("");
   };
   return (
-    <>
-      <h1>Register</h1>
+    <div className="registrationForm">
+      {/* <h1>Register</h1> */}
       <p style={{ color: "red" }}>{register.message}</p>
       <form onSubmit={handleSubmit}>
-        <label>First Name: </label>
+        <label class="form-label">First Name: </label>
         <input
           type="text"
           value={firstName}
+          class="form-control"
           onChange={(e) => setFirstName(e.target.value)}
           minLength={3}
           required
         />
-
-        <label>Last Name: </label>
+        <br />
+        <label class="form-label">Last Name: </label>
         <input
           type="text"
           value={lastName}
+          class="form-control"
           onChange={(e) => setLastName(e.target.value)}
           minLength={3}
           required
         />
-
-        <label>Email: </label>
+        <br />
+        <label class="form-label">Email: </label>
         <input
           type="email"
+          class="form-control"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-
-        <label>Password: </label>
+        <br />
+        <label class="form-label">Password: </label>
         <input
           type="password"
+          class="form-control"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           minLength={7}
           required
         />
-
-        <button>Submit</button>
+        <br />
+        <button class="btn btn-primary">Submit</button>
       </form>
-    </>
+    </div>
   );
 };
 

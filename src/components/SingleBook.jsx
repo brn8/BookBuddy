@@ -17,7 +17,9 @@ const SingleBook = ({ allBooks, token }) => {
         .map((book) => {
           return (
             <div className="singleBook">
-              <h3>{book.title}</h3>
+              <h3 style={{ marginTop: "5px" }}>
+                <strong>{book.title}</strong>
+              </h3>
               <p>By: {book.author}</p>
               <p>
                 <strong>Description: </strong>

@@ -8,6 +8,8 @@ import Account from "./components/Account";
 import { useEffect } from "react";
 import { getBooks } from "./API/Api";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.css";
+
 import SingleBook from "./components/SingleBook";
 function App() {
   const [token, setToken] = useState(null);
