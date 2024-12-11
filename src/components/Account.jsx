@@ -19,11 +19,9 @@ const Account = ({ token, checkout }) => {
     const user = async () => {
       if (token != undefined) {
         const userDetails = await Authorization(token);
-        console.log(userDetail);
         setUserDetail(userDetails);
       }
       const myBook = await reservation(token);
-      console.log(myBook);
       setReservedBook(myBook);
     };
     user();
@@ -47,17 +45,15 @@ const Account = ({ token, checkout }) => {
         {reservedBook != undefined &&
           reservedBook.map((book) => {
             return (
-              <>
-                <div className="bookaccount">
-                  <h3>{book.title}</h3>
-                  <img
-                    src={book.coverimage}
-                    alt="book image"
-                    style={{ width: "250px", height: "350px" }}
-                  />
-                  <button onClick={() => returnHandler(book.id)}>Return</button>
-                </div>
-              </>
+              <div className="bookaccount" key={book.id}>
+                <h3>{book.title}</h3>
+                <img
+                  src={book.coverimage}
+                  alt="book image"
+                  style={{ width: "250px", height: "350px" }}
+                />
+                <button onClick={() => returnHandler(book.id)}>Return</button>
+              </div>
             );
           })}
       </div>

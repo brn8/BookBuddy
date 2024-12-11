@@ -5,7 +5,6 @@ import { addBooksToAccount } from "../API/Api";
 const SingleBook = ({ allBooks, token }) => {
   const { id } = useParams();
   const navigate = useNavigate();
-  console.log(allBooks);
   const handleCheckout = async () => {
     navigate("/account");
     const changeBookAvailability = await addBooksToAccount(token, parseInt(id));
@@ -16,7 +15,7 @@ const SingleBook = ({ allBooks, token }) => {
         .filter((books) => books.id === parseInt(id))
         .map((book) => {
           return (
-            <div className="singleBook">
+            <div className="singleBook" key={book.id}>
               <h3 style={{ marginTop: "5px" }}>
                 <strong>{book.title}</strong>
               </h3>

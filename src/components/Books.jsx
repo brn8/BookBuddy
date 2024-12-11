@@ -15,7 +15,7 @@ const Books = ({ allBooks }) => {
         Books
       </h1> */}
       <input
-        class="form-control mr-sm-2"
+        className="form-control mr-sm-2"
         type="text"
         onChange={(e) => setSearch(e.target.value)}
         value={search}
@@ -39,7 +39,7 @@ const Books = ({ allBooks }) => {
             )
             .map((book) => {
               return (
-                <div className="book" key={book.id}>
+                <div key={book.id} className="book">
                   <h4>{book.title}</h4>
                   <img
                     src={book.coverimage}
