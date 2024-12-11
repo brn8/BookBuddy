@@ -1,5 +1,4 @@
 # [Book Buddy](https://lighthearted-youtiao-16ba2f.netlify.app/)
-- Please click on the Book Buddy to view the project
 
 ## Introduction
 
