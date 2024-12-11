@@ -14,10 +14,12 @@ import SingleBook from "./components/SingleBook";
 function App() {
   const [token, setToken] = useState(null);
   const [allBooks, setAllBooks] = useState([]);
+  const [dataReceived, setDataReceived] = useState(false);
   useEffect(() => {
     const allBooks = async () => {
       const books = await getBooks();
       setAllBooks(books);
+      setDataReceived(true);
     };
     allBooks();
   }, []);
@@ -27,7 +29,10 @@ function App() {
       <Navigation token={token} setToken={setToken} />
 
       <Routes>
-        <Route path="/" element={<Books allBooks={allBooks} />}>
+        <Route
+          path="/"
+          element={<Books allBooks={allBooks} dataReceived={dataReceived} />}
+        >
           Home
         </Route>
         <Route path="/login" element={<Login setToken={setToken} />}>
