@@ -1,0 +1,40 @@
+.nav-bar {
+  background-color: lightcoral;
+  padding: 10px;
+}
+link {
+  text-decoration: none;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+}
+.book {
+  padding: 20px;
+}
+.singleBook {
+  width: 700px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.singleBook img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.singleBook h3 {
+  text-align: center;
+}
+.singleBook p {
+  text-align: center;
+}
+.singleBook button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 20px;
+}
