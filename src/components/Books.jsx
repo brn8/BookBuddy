@@ -5,7 +5,7 @@ const Books = ({ allBooks }) => {
   const navigate = useNavigate();
   return (
     <>
-      <h1>All books</h1>
+      <h1 style={{ textAlign: "center" }}>All books</h1>
       <div className="card">
         {allBooks.map((book) => {
           return (
