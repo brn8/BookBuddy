@@ -10,6 +10,10 @@ link {
   display: grid;
   grid-template-columns: auto auto auto auto auto;
 }
+.card-account {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
 .book {
   padding: 20px;
 }

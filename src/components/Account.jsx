@@ -40,7 +40,7 @@ const Account = ({ token, checkout }) => {
         <strong>Email: </strong>
         {userDetail.email}
       </p>
-      <div className="card">
+      <div className="card-account">
         {reservedBook != undefined &&
           reservedBook.map((book) => {
             return (
