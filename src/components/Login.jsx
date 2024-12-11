@@ -28,6 +28,7 @@ const Login = ({ setToken }) => {
           type="email"
           className="form-control"
           onChange={(e) => setEmail(e.target.value)}
+          autoComplete="username"
           value={email}
         />
         <br />
