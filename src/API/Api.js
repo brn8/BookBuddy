@@ -57,16 +57,52 @@ export const getBooks = async () => {
   }
 };
 
-// export const addBooksToAccount = async (token, arr) => {
-//   try {
-//     const resonse = await fetch(`${API}/api/users/me`, {
-//       method: "PUT",
-//       headers: {
-//         "Content-Type": "application/json",
-//         Authorization: `Bearer ${token}`,
-//       },
-//     });
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+export const addBooksToAccount = async (token, id) => {
+  try {
+    const response = await fetch(`${API}/api/books/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        available: false,
+      }),
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const reservation = async (token) => {
+  try {
+    const response = await fetch(`${API}/api/reservations`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const result = await response.json();
+    return result.reservation;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const deleteReservation = async (token, id) => {
+  try {
+    const response = await fetch(`${API}/api/reservations/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};

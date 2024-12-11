@@ -1,10 +1,15 @@
 import { useNavigate, useParams } from "react-router-dom";
+import { addBooksToAccount } from "../API/Api";
 
 /* TODO - add your code to create a functional React component that renders details for a single book. Fetch the book data from the provided API. You may consider conditionally rendering a 'Checkout' button for logged in users. */
-const SingleBook = ({ allBooks, token, setCheckout }) => {
+const SingleBook = ({ allBooks, token }) => {
   const { id } = useParams();
   const navigate = useNavigate();
   console.log(allBooks);
+  const handleCheckout = async () => {
+    navigate("/account");
+    const changeBookAvailability = await addBooksToAccount(token, parseInt(id));
+  };
   return (
     <>
       {allBooks
@@ -24,14 +29,16 @@ const SingleBook = ({ allBooks, token, setCheckout }) => {
                 style={{ width: "350px", height: "400px" }}
               />
               {token ? (
+                <button onClick={handleCheckout}>Check out</button>
+              ) : (
+                <p style={{ color: "red" }}>
+                  Please <strong>Login</strong> or <strong>Register</strong> in
+                  order to checkout books
+                </p>
+              )}
+              {/* {token ? (
                 <>
-                  <button
-                    onClick={() => {
-                      navigate("/account");
-                      setCheckout(book);
-                    }}
-                    disabled={!book.available}
-                  >
+                  <button onClick={handleCheckout} disabled={!book.available}>
                     Check out
                   </button>
                   {book.available ? (
@@ -47,7 +54,7 @@ const SingleBook = ({ allBooks, token, setCheckout }) => {
                   Please <strong>Login</strong> or <strong>Register</strong> in
                   order to checkout books
                 </p>
-              )}
+              )} */}
             </div>
           );
         })}

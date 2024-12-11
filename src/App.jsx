@@ -12,7 +12,6 @@ import SingleBook from "./components/SingleBook";
 function App() {
   const [token, setToken] = useState(null);
   const [allBooks, setAllBooks] = useState([]);
-  const [checkout, setCheckout] = useState({});
   useEffect(() => {
     const allBooks = async () => {
       const books = await getBooks();
@@ -32,10 +31,7 @@ function App() {
         <Route path="/login" element={<Login setToken={setToken} />}>
           Login
         </Route>
-        <Route
-          path="/account"
-          element={<Account token={token} checkout={checkout} />}
-        >
+        <Route path="/account" element={<Account token={token} />}>
           Account
         </Route>
         <Route path="/register" element={<Register />}>
@@ -43,13 +39,7 @@ function App() {
         </Route>
         <Route
           path="/singleBook/:id"
-          element={
-            <SingleBook
-              allBooks={allBooks}
-              token={token}
-              setCheckout={setCheckout}
-            />
-          }
+          element={<SingleBook allBooks={allBooks} token={token} />}
         >
           Single Book
         </Route>
