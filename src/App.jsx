@@ -15,6 +15,7 @@ function App() {
   const [token, setToken] = useState(null);
   const [allBooks, setAllBooks] = useState([]);
   const [dataReceived, setDataReceived] = useState(false);
+  const [render, setRender] = useState(true);
   useEffect(() => {
     const allBooks = async () => {
       const books = await getBooks();
@@ -22,7 +23,7 @@ function App() {
       setDataReceived(true);
     };
     allBooks();
-  }, []);
+  }, [render]);
 
   return (
     <>
@@ -31,7 +32,14 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Books allBooks={allBooks} dataReceived={dataReceived} />}
+          element={
+            <Books
+              allBooks={allBooks}
+              dataReceived={dataReceived}
+              setRender={setRender}
+              render={render}
+            />
+          }
         >
           Home
         </Route>

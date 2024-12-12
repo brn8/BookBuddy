@@ -29,21 +29,18 @@ const SingleBook = ({ allBooks, token }) => {
                 alt="book image"
                 style={{ width: "350px", height: "400px" }}
               />
-              {token ? (
+              {/* {token ? (
                 <button onClick={handleCheckout}>Check out</button>
               ) : (
                 <p style={{ color: "red" }}>
                   Please <strong>Login</strong> or <strong>Register</strong> in
                   order to checkout books
                 </p>
-              )}
-              {/* {token ? (
+              )} */}
+              {token ? (
                 <>
-                  <button onClick={handleCheckout} disabled={!book.available}>
-                    Check out
-                  </button>
                   {book.available ? (
-                    ""
+                    <button onClick={handleCheckout}>Check out</button>
                   ) : (
                     <p style={{ color: "red" }}>
                       This particular book is not available{" "}
@@ -55,7 +52,7 @@ const SingleBook = ({ allBooks, token }) => {
                   Please <strong>Login</strong> or <strong>Register</strong> in
                   order to checkout books
                 </p>
-              )} */}
+              )}
             </div>
           );
         })}

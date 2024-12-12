@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 /* TODO - add your code to create a functional React component that displays all of the available books in the library's catalog. Fetch the book data from the provided API. Users should be able to click on an individual book to navigate to the SingleBook component and view its details. */
-const Books = ({ allBooks, dataReceived }) => {
+const Books = ({ allBooks, dataReceived, setRender, render }) => {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
   return (
@@ -46,7 +46,12 @@ const Books = ({ allBooks, dataReceived }) => {
                     alt="book image"
                     style={{ width: "250px", height: "350px" }}
                   />
-                  <button onClick={() => navigate(`/singleBook/${book.id}`)}>
+                  <button
+                    onClick={() => {
+                      navigate(`/singleBook/${book.id}`);
+                      setRender(!render);
+                    }}
+                  >
                     See Details
                   </button>
                 </div>
